@@ -28,7 +28,7 @@ export default function HintCard({
   onReveal,
 }: HintCardProps) {
   const difficulty = hint["hint-type"];
-  const statement = hint["hint-statementt"];
+  const statement = hint["hint-statement"];
   const diffStyle = DIFFICULTY_STYLES[difficulty] ?? DIFFICULTY_STYLES.medium;
   const isClickable = isNext && !gameOver;
 
@@ -37,11 +37,12 @@ export default function HintCard({
       onClick={isClickable ? onReveal : undefined}
       className={`
         relative rounded-xl border p-4 transition-all duration-300 select-none
-        ${revealed
-          ? "bg-slate-800 border-slate-700"
-          : isClickable
-          ? "bg-slate-800/60 border-slate-600 cursor-pointer hover:border-green-500/60 hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.99]"
-          : "bg-slate-900/40 border-slate-800 opacity-50"
+        ${
+          revealed
+            ? "bg-slate-800 border-slate-700"
+            : isClickable
+              ? "bg-slate-800/60 border-slate-600 cursor-pointer hover:border-green-500/60 hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.99]"
+              : "bg-slate-900/40 border-slate-800 opacity-50"
         }
       `}
     >
@@ -72,7 +73,9 @@ export default function HintCard({
           <div className="flex items-center gap-2 text-slate-600">
             <span className="text-xl">{isClickable ? "🔓" : "🔒"}</span>
             {isClickable && (
-              <span className="text-xs text-slate-500">Click to reveal hint</span>
+              <span className="text-xs text-slate-500">
+                Click to reveal hint
+              </span>
             )}
           </div>
         )}

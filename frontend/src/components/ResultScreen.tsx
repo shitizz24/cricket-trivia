@@ -31,9 +31,7 @@ export default function ResultScreen({
     `${correctName}`,
     `⭐ ${stars} stars | ${revealedCount} hint${revealedCount !== 1 ? "s" : ""} used | ${wrongGuesses} wrong guess${wrongGuesses !== 1 ? "es" : ""}`,
     "",
-    hints
-      .map((h, i) => (i < revealedCount ? HINT_EMOJIS[i] : "⬛"))
-      .join(" "),
+    hints.map((h, i) => (i < revealedCount ? HINT_EMOJIS[i] : "⬛")).join(" "),
   ].join("\n");
 
   const handleShare = () => {
@@ -66,7 +64,9 @@ export default function ResultScreen({
           </div>
           <div className="w-px h-8 bg-slate-700" />
           <div className="text-center">
-            <p className="text-2xl font-bold text-slate-200">{revealedCount}/4</p>
+            <p className="text-2xl font-bold text-slate-200">
+              {revealedCount}/4
+            </p>
             <p className="text-xs text-slate-500 mt-0.5">hints used</p>
           </div>
           <div className="w-px h-8 bg-slate-700" />
@@ -85,7 +85,7 @@ export default function ResultScreen({
             <div key={i} className="flex items-start gap-2.5">
               <span className="text-sm shrink-0 mt-0.5">{HINT_EMOJIS[i]}</span>
               <p className="text-sm text-slate-300 leading-snug">
-                {hint["hint-statementt"]}
+                {hint["hint-statement"]}
               </p>
             </div>
           ))}

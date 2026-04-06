@@ -1,6 +1,6 @@
 export interface Hint {
   "hint-type": "easy" | "medium" | "hard";
-  "hint-statementt": string;
+  "hint-statement": string;
 }
 
 export interface TriviaResponse {
